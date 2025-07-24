@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسحوبات شركات الأدوية</title>
+    <meta name="description" content="Created By Dr. Mahmoud Hamdy." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        }
+
+        .company-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .company-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .drug-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .drug-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .slide-up {
+            animation: slideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 12px rgba(79, 70, 229, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-4 px-6 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <img src="gahar.svg" alt="Gahar Logo" class="h-10 w-10">
+                <img src="mashfa.png" alt="Mashfa Logo" class="h-10 w-10">
+            </div>
+            <h1 class="text-xl md:text-2xl font-bold">مسحوبات شركات الأدوية</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Janssen Card -->
+            <div class="company-card slide-up" style="animation-delay: 0.1s"
+                onclick="window.location.href='janssen.html'">
+                <div class="flex flex-col items-center p-8">
+                    <img src="janssen.png" alt="Janssen Logo" class="h-24 mb-6">
+                    <h3 class="text-2xl font-bold text-center text-gray-800 mb-4">Janssen</h3>
+                    <div class="flex items-center bg-indigo-100 rounded-full px-6 py-3 pulse">
+                        <span class="text-indigo-800 font-bold">إجمالي المسحوبات:</span>
+                        <span class="mr-2 text-indigo-600 font-bold text-xl">1,927,941</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Otsuka Card -->
+            <div class="company-card slide-up" style="animation-delay: 0.2s"
+                onclick="window.location.href='otsuka.html'">
+                <div class="flex flex-col items-center p-8">
+                    <img src="otsuka.jpg" alt="Otsuka Logo" class="h-24 mb-6">
+                    <h3 class="text-2xl font-bold text-center text-gray-800 mb-4">Otsuka</h3>
+                    <div class="flex items-center bg-emerald-100 rounded-full px-6 py-3 pulse">
+                        <span class="text-emerald-800 font-bold">إجمالي المسحوبات:</span>
+                        <span class="mr-2 text-emerald-600 font-bold text-xl">581,553</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-6 px-6">
+        <div class="container mx-auto flex flex-col items-center text-center">
+            <div class="flex items-center mb-4">
+                <img src="mahmoud.jpg" alt="Dr. Mahmoud Hamdy"
+                    class="h-14 w-14 rounded-full border-2 border-white mr-4">
+                <div>
+                    <p class="text-lg">Created By Dr. Mahmoud Hamdy</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add animations on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in, .slide-up').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>
