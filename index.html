@@ -86,6 +86,23 @@
                 box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
             }
         }
+
+        .more-indicator {
+            animation: glow 2s infinite ease-in-out;
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                opacity: 0.5;
+                transform: translateY(0);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-3px);
+            }
+        }
     </style>
 </head>
 
@@ -112,7 +129,11 @@
                     <h3 class="text-2xl font-bold text-center text-gray-800 mb-4">Janssen</h3>
                     <div class="flex items-center bg-indigo-100 rounded-full px-6 py-3 pulse">
                         <span class="text-indigo-800 font-bold">إجمالي المسحوبات:</span>
-                        <span class="mr-2 text-indigo-600 font-bold text-xl">1,927,941</span>
+                        <span class="mr-2 text-indigo-600 font-bold text-xl">2,714,809</span>
+                    </div>
+                    <div class="more-indicator text-indigo-500 mt-2 flex items-center">
+                        <span>انقر للمزيد من التفاصيل</span>
+                        <i class="fas fa-chevron-down mr-1"></i>
                     </div>
                 </div>
             </div>
@@ -125,7 +146,11 @@
                     <h3 class="text-2xl font-bold text-center text-gray-800 mb-4">Otsuka</h3>
                     <div class="flex items-center bg-emerald-100 rounded-full px-6 py-3 pulse">
                         <span class="text-emerald-800 font-bold">إجمالي المسحوبات:</span>
-                        <span class="mr-2 text-emerald-600 font-bold text-xl">581,553</span>
+                        <span class="mr-2 text-emerald-600 font-bold text-xl">739,868</span>
+                    </div>
+                    <div class="more-indicator text-emerald-500 mt-2 flex items-center">
+                        <span>انقر للمزيد من التفاصيل</span>
+                        <i class="fas fa-chevron-down mr-1"></i>
                     </div>
                 </div>
             </div>
